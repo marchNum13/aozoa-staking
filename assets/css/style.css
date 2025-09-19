@@ -1,0 +1,602 @@
+/* * ================================================
+ * Variabel Warna & Gaya Global
+ * ================================================
+ */
+:root {
+    --primary-blue: #3a7dff;
+    --dark-background: #0d1117;
+    --card-background: #161b22;
+    --text-primary: #ffffff;
+    --text-secondary: #c9d1d9;
+    --accent-glow: rgba(58, 125, 255, 0.3);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body, html {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--dark-background);
+    color: var(--text-primary);
+}
+
+/* * ================================================
+ * Animasi Preloader
+ * ================================================
+ */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 17, 23, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.preloader.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.preloader .loader-logo {
+    width: 80px;
+    height: 80px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* * ================================================
+ * Halaman #1: Landing Page
+ * ================================================
+ */
+.page-landing {
+    height: 100%; 
+}
+
+.page-landing .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.page-landing .content-card {
+    background-color: var(--card-background);
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 var(--accent-glow);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-landing .logo-img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.page-landing .welcome-title {
+    font-weight: 700;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-landing .short-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.page-landing .connect-wallet-btn {
+    background: linear-gradient(45deg, var(--primary-blue), #5a8fff);
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.9rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(58, 125, 255, 0.4);
+}
+
+/* * ================================================
+ * Kerangka untuk SEMUA Halaman Aplikasi
+ * ================================================
+ */
+.page-app {
+    padding-bottom: 80px; 
+}
+
+.page-app .header {
+    padding: 1.5rem 1rem;
+}
+
+.page-app .header .greeting-wallet {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.page-app .header .disconnect-btn {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+.page-app .header .disconnect-btn:hover {
+    color: var(--primary-blue);
+}
+
+.page-app .page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 1rem 0 2rem 0;
+}
+
+/* * ================================================
+ * Komponen Umum di Halaman Aplikasi
+ * ================================================
+ */
+.page-app .stat-card {
+    background-color: var(--card-background);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+}
+
+.page-app .stat-card .stat-title {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.page-app .stat-card .stat-value {
+    font-size: 1.0rem;
+    font-weight: 700;
+}
+
+.page-app .cta-button {
+    background: linear-gradient(45deg, var(--primary-blue), #5a8fff);
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.9rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(58, 125, 255, 0.4);
+}
+
+.page-app .summary-card,
+.page-app .confirmation-summary {
+    background-color: var(--card-background);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.page-app .summary-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+.page-app .summary-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.page-app .summary-item:first-child {
+    padding-top: 0;
+}
+
+/* STYLE YANG HILANG DITAMBAHKAN KEMBALI DI SINI */
+.page-app .progress-bar-custom {
+    background-color: var(--dark-background); /* Sedikit lebih gelap dari card */
+    border-radius: 0.5rem;
+    height: 10px;
+    overflow: hidden; /* Penting agar border-radius di child-nya terlihat */
+}
+
+.page-app .progress-bar-custom .progress-fill {
+    background-color: var(--primary-blue);
+    border-radius: 0.5rem;
+    height: 100%;
+}
+/* AKHIR DARI STYLE YANG DITAMBAHKAN */
+
+
+/* * ================================================
+ * Gaya Khusus Form (Untuk Halaman Stake, Wallet, dll.)
+ * ================================================
+ */
+.page-app .form-group-custom {
+    margin-bottom: 1.5rem;
+}
+
+.page-app .form-label-custom {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.page-app .form-control-custom {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 0.9rem 1rem;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+.page-app .plan-selection .plan-btn {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.page-app .plan-selection .plan-btn.active {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+/* * ================================================
+ * Gaya Khusus Halaman Wallet
+ * ================================================
+ */
+.page-app .balance-card {
+    background: linear-gradient(45deg, var(--primary-blue), #5a8fff);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 25px rgba(58, 125, 255, 0.4);
+}
+
+.page-app .balance-card .balance-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+}
+
+.page-app .balance-card .balance-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.page-app .info-box {
+    background-color: var(--card-background);
+    border-left: 4px solid var(--primary-blue);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 2rem;
+}
+
+/* * ================================================
+ * Gaya Khusus Halaman Network
+ * ================================================
+ */
+.page-app .referral-card {
+    background-color: var(--card-background);
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-app .referral-card .referral-link {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding-right: 1rem;
+}
+
+.page-app .copy-btn {
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+.page-app .downline-list .downline-item {
+    background-color: var(--card-background);
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border-color);
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-app .downline-item .wallet-address {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.page-app .downline-item .turnover-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.page-app .downline-item .turnover-amount {
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+/* * ================================================
+ * Gaya Khusus Halaman History
+ * ================================================
+ */
+.page-app .history-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto; /* Agar bisa scroll horizontal jika tidak muat */
+}
+
+.page-app .history-tab-item {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.page-app .history-tab-item.active {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.page-app .transaction-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-app .transaction-item:last-child {
+    border-bottom: none;
+}
+
+.page-app .transaction-icon {
+    background-color: var(--card-background);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+.page-app .transaction-icon.income { color: var(--success-color); }
+.page-app .transaction-icon.outcome { color: var(--danger-color); }
+.page-app .transaction-icon.stake { color: var(--primary-blue); }
+
+.page-app .transaction-details {
+    flex-grow: 1;
+}
+
+.page-app .transaction-details .type {
+    font-weight: 600;
+}
+
+.page-app .transaction-details .date {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.page-app .transaction-amount {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.page-app .transaction-amount.income { color: var(--success-color); }
+.page-app .transaction-amount.outcome { color: var(--danger-color); }
+
+.page-app .pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.page-app .pagination-btn {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.page-app .pagination-btn:disabled {
+    opacity: 0.5;
+}
+
+.page-app .pagination-info {
+    font-size: 0.9rem;
+}
+
+/* * ================================================
+ * Gaya Khusus Kartu Vesting
+ * ================================================
+ */
+.vesting-card {
+    border-left: 4px solid var(--primary-blue);
+}
+
+.vesting-card .claim-button {
+    margin-top: 1.5rem;
+    background-color: var(--card-background);
+    border: 1px solid var(--primary-blue);
+    color: var(--text-primary);
+}
+
+.vesting-card .claim-button:hover {
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+}
+
+/* * ================================================
+ * PENAMBAHAN BARU: Sistem Notifikasi Pop-up Kustom
+ * ================================================
+ */
+.custom-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-alert-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.custom-alert-popup {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.custom-alert-overlay.show .custom-alert-popup {
+    transform: scale(1);
+}
+
+.custom-alert-popup .alert-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.custom-alert-popup .alert-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.custom-alert-popup .alert-message {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.custom-alert-popup .alert-close-btn {
+    background-color: var(--primary-blue);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Variasi Warna Berdasarkan Tipe Notifikasi */
+.custom-alert-popup.success .alert-icon { color: #28a745; }
+.custom-alert-popup.error .alert-icon { color: #dc3545; }
+.custom-alert-popup.warning .alert-icon { color: #ffc107; }
+
+/* * ================================================
+ * Komponen Global: Navigasi Bawah
+ * ================================================
+ */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--card-background);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-item .nav-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.nav-item .nav-label {
+    font-size: 0.75rem;
+}
+
+.nav-item.active {
+    color: var(--primary-blue);
+}

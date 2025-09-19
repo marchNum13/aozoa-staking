@@ -1,0 +1,498 @@
+{
+  "langitStaking": {
+    "name": "LangitStaking",
+    "address": "0xF970F532AB613a9F710dc7e74C2584D774796216",
+    "abi": [{
+        "inputs": [{
+            "internalType": "address",
+            "name": "_langitTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "_initialAdminAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "_initialBurnAddress",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "anonymous": false,
+        "inputs": [{
+            "indexed": true,
+            "internalType": "address",
+            "name": "recipient",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "AdminWithdrawal",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [{
+          "indexed": true,
+          "internalType": "address",
+          "name": "newBurnAddress",
+          "type": "address"
+        }],
+        "name": "BurnAddressChanged",
+        "type": "event"
+      },
+      {
+        "inputs": [{
+            "internalType": "bytes32",
+            "name": "_stakeId",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "_isBurn",
+            "type": "bool"
+          }
+        ],
+        "name": "claimLangit",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [{
+          "internalType": "bytes32",
+          "name": "_stakeId",
+          "type": "bytes32"
+        }],
+        "name": "claimVestedTokens",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "anonymous": false,
+        "inputs": [{
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "stakeId",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "recipient",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "LangitClaimed",
+        "type": "event"
+      },
+      {
+        "inputs": [{
+          "internalType": "address",
+          "name": "_newAdminAddress",
+          "type": "address"
+        }],
+        "name": "setAdmin",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [{
+          "internalType": "address",
+          "name": "_newBurnAddress",
+          "type": "address"
+        }],
+        "name": "setBurnAddress",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [{
+            "internalType": "bytes32",
+            "name": "_stakeId",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "stake",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "anonymous": false,
+        "inputs": [{
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "stakeId",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "burnAddress",
+            "type": "address"
+          }
+        ],
+        "name": "StakeBurned",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [{
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "stakeId",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "staker",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "Staked",
+        "type": "event"
+      },
+      {
+        "inputs": [{
+          "internalType": "bytes32",
+          "name": "_stakeId",
+          "type": "bytes32"
+        }],
+        "name": "unstake",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "anonymous": false,
+        "inputs": [{
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "stakeId",
+          "type": "bytes32"
+        }],
+        "name": "Unstaked",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [{
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "stakeId",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "VestingClaimed",
+        "type": "event"
+      },
+      {
+        "inputs": [{
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }],
+        "name": "withdrawLangit",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "admin",
+        "outputs": [{
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "burnAddress",
+        "outputs": [{
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getContractBalance",
+        "outputs": [{
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [{
+          "internalType": "bytes32",
+          "name": "_stakeId",
+          "type": "bytes32"
+        }],
+        "name": "getStakeInfo",
+        "outputs": [{
+          "components": [{
+              "internalType": "address",
+              "name": "staker",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "stakeTimestamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "vestingStart",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "releasedAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "enum LangitStaking.Status",
+              "name": "status",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct LangitStaking.Stake",
+          "name": "",
+          "type": "tuple"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "langitToken",
+        "outputs": [{
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [{
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [{
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }],
+        "name": "stakes",
+        "outputs": [{
+            "internalType": "address",
+            "name": "staker",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stakeTimestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "vestingStart",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "releasedAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "enum LangitStaking.Status",
+            "name": "status",
+            "type": "uint8"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "VESTING_DURATION",
+        "outputs": [{
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ]
+  },
+  "langitBurnVault": {
+    "name": "LangitBurnVault",
+    "address": "0x5fb06832dc03e072408da7fcc1979de2f35843b8",
+    "abi": [{
+        "inputs": [{
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }],
+        "name": "withdrawBurnedTokens",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "totalBurned",
+        "outputs": [{
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ]
+  },
+  "langitToken": {
+    "name": "LANGIT",
+    "address": "0xeE145Ab8589c0D5B694926e75a11fb2F7d191acD",
+    "abi": [{
+        "inputs": [{
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "spender",
+            "type": "address"
+          }
+        ],
+        "name": "allowance",
+        "outputs": [{
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [{
+            "internalType": "address",
+            "name": "spender",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "value",
+            "type": "uint256"
+          }
+        ],
+        "name": "approve",
+        "outputs": [{
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [{
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }],
+        "name": "balanceOf",
+        "outputs": [{
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "decimals",
+        "outputs": [{
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ]
+  }
+}
